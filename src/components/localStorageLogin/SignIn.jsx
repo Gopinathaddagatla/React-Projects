@@ -45,8 +45,8 @@ function SignIn() {
                         <br />
                         <Form>
                             <InputGroup>
-                                <Form.Control type="email" name="email" value={formData.email} onChange={changeHandler}/>
-                                <Form.Control type={showpw?"password":"text"} name="password" value={formData.password} onChange={changeHandler}/>
+                                <Form.Control type="email" name="email" value={formData.email} onChange={changeHandler} placeholder='Enter Email Address'/>
+                                <Form.Control type={showpw?"password":"text"} name="password" value={formData.password} onChange={changeHandler} placeholder='Enter Password'/>
                                 <InputGroup.Text><span onClick={passwordToggleHandler}>{showpw ? <Icon.EyeSlash /> : <Icon.Eye />}</span></InputGroup.Text>
                                 <Button type="submit" onClick={(e)=>{signIn(e)}}>SignIn</Button>
                             </InputGroup>
