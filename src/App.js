@@ -10,6 +10,8 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import PageNotFound from './components/PageNotFound';
 import Welcome from './components/localStorageLogin/Welcome'
+import ProductList from './components/redux/ProductList';
+import Cart from './components/redux/Cart';
 
 function App() {
   return (
@@ -23,9 +25,11 @@ function App() {
             <Route path={'/signin'} element={<SignIn/>}/>
             <Route path={'/contextapi'} element={<ContextApi/>}/>
             <Route path={'/welcome'} element={<Welcome />}/>
+            <Route path={'/redux'} element={<ProductList />} />
+            <Route path={'/cart'} element={<Cart />} />
             <Route path={'*'} element={<PageNotFound />}/>
           </Routes>
-      </BrowserRouter>
+      </BrowserRouter> 
         <Footer />
     </div>
   );

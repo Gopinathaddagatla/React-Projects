@@ -1,8 +1,10 @@
-import { Col, Container, Row} from 'react-bootstrap'
+import { Badge, Col, Container, Row} from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 // import SignOutUser from './localStorageLogin/SignOutUser'
 
 function Header() {
+    const cart = useSelector(state => state.cart);
     const Header = {
         backgroundColor: 'darkslategrey',
         color: '#fff',
@@ -10,18 +12,20 @@ function Header() {
 
   return (
     <div>
+        <br />
         <div className='topHeader text-end py-1'>
             <Container>
                 <Row>
-                    <Col>
-                        {<div>Welcome : <strong>{JSON.parse(localStorage.getItem('userName'))}</strong></div>}
+                    <Col md={12}>
+                        <Link to={'/cart'} className='bg-dark px-3 py-2 text-white rounded box-border-box text-decoration-none' >Cart <Badge>{cart.length}</Badge></Link>
                     </Col>
                 </Row>
             </Container>
         </div>
+        <br />
         <header style={Header}>
             <Container>
-                <Row className='d-flex justify-content-between align-items-center py-3'>
+                <Row className='d-flex justify-content-between align-items-center p-3'>
                     <Col md={4}>
                         <Link to={'/'} className='logo'>ReactTopics</Link>
                     </Col>

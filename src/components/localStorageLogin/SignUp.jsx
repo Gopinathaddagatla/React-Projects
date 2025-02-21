@@ -134,7 +134,7 @@ function SignUp() {
                 <Container>
                     <Row>
                         <Col>
-                                <Table striped bordered hover variant='dark'>
+                            <Table striped bordered hover variant='dark'>
                                 <thead>
                                     <tr>
                                         <th>S.No</th>
@@ -144,17 +144,17 @@ function SignUp() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {records.filter((item)=> item ? item.name.toLowerCase().includes(search): item).map((elm, index)=>{
+                                    {records.length === 0 ? <tr><td colSpan={3}>No Records Yet!</td></tr>:(records.filter((item)=> item ? item.name.toLowerCase().includes(search): item).map((elm, index)=>{
                                         return <tr key={index}>
-                                                    <td>{index+1}</td>  
-                                                    <td>{elm.name}</td> 
-                                                    <td>{elm.email}</td>
-                                                    <td>
-                                                        <Button type="button" onClick={()=>editData(elm.id)}>Edit</Button> &nbsp;
-                                                        <Button type="button" onClick={()=>removeData(elm.id)}>Delete</Button>
-                                                    </td>
-                                                </tr>
-                                    })}
+                                                <td>{index+1}</td>  
+                                                <td>{elm.name}</td> 
+                                                <td>{elm.email}</td>
+                                                <td>
+                                                    <Button type="button" onClick={()=>editData(elm.id)}>Edit</Button> &nbsp;
+                                                    <Button type="button" onClick={()=>removeData(elm.id)}>Delete</Button>
+                                                </td>
+                                            </tr>
+                                    }))}
                                 </tbody>
                             </Table>
                             <Pagination 
