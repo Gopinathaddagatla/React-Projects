@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux'
 import {removeFromCart} from './Action'
@@ -6,6 +6,8 @@ import {removeFromCart} from './Action'
 function Cart() {
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
+
+    const [total, setTotal] = useState(0);
 
     const image = {
       width: '100%',

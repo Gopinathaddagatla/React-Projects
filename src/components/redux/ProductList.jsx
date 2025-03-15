@@ -38,12 +38,14 @@ function ProductList() {
             </Row>
             <br />
             <Row>
+                {console.log(products)}
                 {products.length === 0 ? <center><h4>Loading...</h4></center> : products.filter(elm => elm ? elm.category.toLowerCase().includes(search) : elm).map((item)=>{
                         return  <Col xl={3} lg={4} md={6} sm={1}>
                                     <div className='product mb-4 border-1 p-3' style={{border: "1px solid #ddd", borderRadius: "5px"}}>
                                         <img src={item.image} alt={item.category} style={image}/>
                                         <br />
                                         <br />
+                                        <h6>{item.title}</h6>
                                         <h6><strong>Category</strong> : {item.category}</h6>
                                         <h6><strong>Price</strong> : {item.price}</h6>
                                         <h6><strong>Rating : </strong>{item.rating.rate}</h6>
